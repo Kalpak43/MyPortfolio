@@ -1,7 +1,7 @@
 export default function Main() {
     return (
-        <div className="h-1/6 border-2">
-            Navbar
+        <div className="box h-20 border-2 bg-red-900 absolute w-1/2 rotate-45">
+
         </div>
     )
 }
