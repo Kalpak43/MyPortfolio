@@ -70,7 +70,7 @@ export default function Sidebar() {
       </header>
       <div
         className={
-          "px-4 py-2 w-fit md:w-auto h-screen flex flex-col justify-between bg-[var(--md-sys-color-surface-container)] fixed top-0 left-0  md:translate-x-0 transition-all duration-100 md:static" +
+          "px-4 py-2 w-fit md:w-auto h-[100dvh] flex flex-col justify-between bg-[var(--md-sys-color-surface-container)] fixed top-0 left-0  md:translate-x-0 transition-all duration-100 md:static" +
           (open ? " translate-x-0" : " -translate-x-full")
         }
       >
