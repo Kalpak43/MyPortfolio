@@ -8,6 +8,7 @@ export default function ThemeProvider({ children }) {
 
   useEffect(() => {
     const localTheme = localStorage.getItem("kp-theme");
+
     if (localTheme) {
       setTheme(localTheme);
       document.body
@@ -15,7 +16,7 @@ export default function ThemeProvider({ children }) {
         .setAttribute("data-theme", localTheme);
     } else {
       const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
-      document.body.setAttribute(
+      document.body.querySelector(".layout").setAttribute(
         "data-theme",
         {
           true: "dark",
