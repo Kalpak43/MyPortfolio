@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "@material/web/button/text-button.js";
 import "@material/web/button/outlined-button.js";
 import "@material/web/checkbox/checkbox.js";
@@ -9,42 +9,103 @@ import { ThemeContext } from "@/contexts/ThemeProvider";
 export default function Sidebar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-  return (
-    <div className="p-4 h-screen flex flex-col justify-between bg-[var(--md-sys-color-surface-container)]">
-      {/* <md-text-button>
-        <span className="material-symbols-outlined block">menu</span>
-      </md-text-button> */}
-      <div className="flex flex-col gap-y-4">
-        <md-text-button class="active" title="home">
-          <span className="material-symbols-outlined block nav-link">home</span>
-        </md-text-button>
-        <md-text-button class="" title="skills">
-          <span className="material-symbols-outlined block nav-link">code</span>
-        </md-text-button>
-        <md-text-button title="Projects">
-          <span className="material-symbols-outlined block nav-link">
-            terminal
-          </span>
-        </md-text-button>
-        <md-text-button title="resume">
-          <span className="material-symbols-outlined block nav-link">
-            description
-          </span>
-        </md-text-button>
-        <md-text-button title="certifications and awards">
-          <span className="material-symbols-outlined block nav-link">
-            license
-          </span>
-        </md-text-button>
-      </div>
+  const links = [
+    {
+      name: "home",
+      icon: "home",
+      link: "#",
+    },
+    {
+      name: "skills",
+      icon: "code",
+      link: "#skills",
+    },
+    {
+      name: "projects",
+      icon: "terminal",
+      link: "#terminal",
+    },
+    {
+      name: "resume",
+      icon: "description",
+      link: "#experience",
+    },
+    {
+      name: "certifications and awards",
+      icon: "license",
+      link: "#certifications",
+    },
+  ];
 
-      <div>
-        <md-outlined-button onClick={() => toggleTheme()}>
+  const [activeSection, setActiveSection] = useState("home");
+
+  const handleHash = () => {
+    const hash = window.location.hash;
+    setActiveSection(hash);
+  };
+
+  useEffect(() => {
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHash);
+    };
+  }, []);
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen((prev) => !prev);
+  };
+
+  return (
+    <>
+      <header className="flex md:hidden items-center py-2 px-4">
+        <button title="menu-toggle" onClick={handleOpen}>
           <span className="material-symbols-outlined block">
-            {theme === "light" ? "dark_mode" : "light_mode"}
+            {open ? "menu_open" : "menu"}
           </span>
-        </md-outlined-button>
+        </button>
+      </header>
+      <div
+        className={
+          "px-4 py-2 w-fit md:w-auto h-screen flex flex-col justify-between bg-[var(--md-sys-color-surface-container)] fixed top-0 left-0  md:translate-x-0 transition-all duration-100 md:static" +
+          (open ? " translate-x-0" : " -translate-x-full")
+        }
+      >
+        <div className="flex flex-col gap-y-4">
+          <button title="menu-toggle" onClick={handleOpen}>
+            <span className="material-symbols-outlined block">
+              {open ? "menu_open" : "menu"}
+            </span>
+          </button>
+          {links.map((link) => (
+            <md-text-button
+              key={link.name}
+              class={
+                link.link === activeSection ||
+                (activeSection === "" && link.name === "home")
+                  ? "active"
+                  : ""
+              }
+              href={link.link}
+            >
+              <span className="material-symbols-outlined block">
+                {link.icon}
+              </span>
+            </md-text-button>
+          ))}
+        </div>
+
+        <div>
+          <md-outlined-button onClick={() => toggleTheme()}>
+            <span className="material-symbols-outlined block">
+              {theme === "light" ? "dark_mode" : "light_mode"}
+            </span>
+          </md-outlined-button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -2,24 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("../styles/icons.css");
 @import url("../styles/Sidebar/Sidebar.css");
 
 :root {
   --md-sys-color-primary: #6750a4;
-  --md-sys-color-on-primary: #381E72;
+  --md-sys-color-on-primary: #381e72;
   --md-sys-color-primary-container: #eaddff;
-  --md-sys-color-on-primary-container: #EADDFF;
+  --md-sys-color-on-primary-container: #eaddff;
   --md-sys-color-secondary: #625b71;
-  --md-sys-color-on-secondary: #332D41;
+  --md-sys-color-on-secondary: #332d41;
   --md-sys-color-secondary-container: #1d192b;
-  --md-sys-color-on-secondary-container: #E8DEF8;
-  
+  --md-sys-color-on-secondary-container: #e8def8;
+
   --md-sys-color-tertiary: #7d5260;
   --md-sys-color-error: #b3261e;
-  
+
   --md-sys-color-surface: #fef7ff;
-  --md-sys-color-on-surface: #1D1B20;
+  --md-sys-color-on-surface: #1d1b20;
   --md-sys-color-surface-container: #f3edf7;
   --md-sys-color-outline: #79747e;
 
@@ -27,37 +28,81 @@
 }
 
 [data-theme="dark"] {
-  --md-sys-color-primary: #D0BCFF;
-  --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #4F378B;
-  --md-sys-color-on-primary-container: #21005D;
-  --md-sys-color-secondary: #CCC2DC;
+  --md-sys-color-primary: #d0bcff;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #4f378b;
+  --md-sys-color-on-primary-container: #21005d;
+  --md-sys-color-secondary: #ccc2dc;
   --md-sys-color-on-secondary: #ffffff;
-  --md-sys-color-secondary-container: #4A4458;
-  --md-sys-color-on-secondary-container: #1D192B;
+  --md-sys-color-secondary-container: #4a4458;
+  --md-sys-color-on-secondary-container: #1d192b;
 
-  --md-sys-color-tertiary: #EFB8C8;
-  --md-sys-color-error: #F2B8B5;
+  --md-sys-color-tertiary: #efb8c8;
+  --md-sys-color-error: #f2b8b5;
 
   --md-sys-color-surface: #141218;
-  --md-sys-color-on-surface: #E6E0E9;
-  --md-sys-color-surface-container: #36343B;
+  --md-sys-color-on-surface: #e6e0e9;
+  --md-sys-color-surface-container: #36343b;
 
   --md-sys-color-outline: #79747e;
-
-  --md-sys-typescale-display-large-font: "Roboto";
+  
+  --md-sys-typescale-display-large-font: "Noto Sans", sans-serif;
   --md-sys-typescale-display-large-weight: 400;
-  --md-sys-typescale-display-large-size: 96px;
+  --md-sys-typescale-display-large-size: 57pt;
   --md-sys-typescale-display-large-tracking: -0.25pt;
   --md-sys-typescale-display-large-line-height: 64pt;
+
+  --md-sys-typescale-headline-large-font: "Noto Sans", sans-serif;
+  --md-sys-typescale-headline-large-weight: 400;
+  --md-sys-typescale-headline-large-size: 32pt;
+  --md-sys-typescale-headline-large-tracking: 0;
+  --md-sys-typescale-headline-large-line-height: 40pt;
+
+  --md-sys-typescale-title-large-font: "Noto Sans", sans-serif;
+  --md-sys-typescale-title-large-weight: 400;
+  --md-sys-typescale-title-large-size: 22pt;
+  --md-sys-typescale-title-large-tracking: 0;
+  --md-sys-typescale-title-large-line-height: 28pt;
+
+  --md-sys-typescale-body-large-font: "Noto Sans", sans-serif;
+  --md-sys-typescale-body-large-weight: 400;
+  --md-sys-typescale-body-large-size: 16pt;
+  --md-sys-typescale-body-large-tracking: 0.5pt;
+  --md-sys-typescale-body-large-line-height: 24pt;
+
+  --md-sys-typescale-label-large-font: "Noto Sans", sans-serif;
+  --md-sys-typescale-label-large-weight: 500;
+  --md-sys-typescale-label-large-weight-prominent: 700;
+  --md-sys-typescale-label-large-size: 14pt;
+  --md-sys-typescale-label-large-tracking: 0.1pt;
+  --md-sys-typescale-label-large-line-height: 20pt;
 }
 
 * {
   transition: background-color 0.3s, color 0.1s;
 }
 
+.noto-sans-fam {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+body {
+  font-family: "Cursive", sans-serif;
+}
+
 .layout {
   display: flex;
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
+}
+
+@media screen and (max-width: 767px) {
+  .layout {
+    display: block;
+  }
 }

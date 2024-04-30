@@ -11,12 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="layout noto-sans-fam">
         <ThemeProvider>
-          <main className="layout">
             <Sidebar />
             {children}
-          </main>
         </ThemeProvider>
       </body>
     </html>
