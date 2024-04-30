@@ -3,21 +3,61 @@
 @tailwind utilities;
 
 @import url("../styles/icons.css");
+@import url("../styles/Sidebar/Sidebar.css");
 
 :root {
   --md-sys-color-primary: #6750a4;
-  --md-sys-color-primary-container: #EADDFF;
+  --md-sys-color-on-primary: #381E72;
+  --md-sys-color-primary-container: #eaddff;
+  --md-sys-color-on-primary-container: #EADDFF;
   --md-sys-color-secondary: #625b71;
+  --md-sys-color-on-secondary: #332D41;
+  --md-sys-color-secondary-container: #1d192b;
+  --md-sys-color-on-secondary-container: #E8DEF8;
+  
   --md-sys-color-tertiary: #7d5260;
   --md-sys-color-error: #b3261e;
+  
   --md-sys-color-surface: #fef7ff;
-  --md-sys-color-outline: #79747E;
+  --md-sys-color-on-surface: #1D1B20;
+  --md-sys-color-surface-container: #f3edf7;
+  --md-sys-color-outline: #79747e;
 
-
-  --md-sys-typeface-brand: "Roboto"
+  --md-sys-typeface-brand: "Roboto";
 }
 
-body {
+[data-theme="dark"] {
+  --md-sys-color-primary: #D0BCFF;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #4F378B;
+  --md-sys-color-on-primary-container: #21005D;
+  --md-sys-color-secondary: #CCC2DC;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #4A4458;
+  --md-sys-color-on-secondary-container: #1D192B;
+
+  --md-sys-color-tertiary: #EFB8C8;
+  --md-sys-color-error: #F2B8B5;
+
+  --md-sys-color-surface: #141218;
+  --md-sys-color-on-surface: #E6E0E9;
+  --md-sys-color-surface-container: #36343B;
+
+  --md-sys-color-outline: #79747e;
+
+  --md-sys-typescale-display-large-font: "Roboto";
+  --md-sys-typescale-display-large-weight: 400;
+  --md-sys-typescale-display-large-size: 96px;
+  --md-sys-typescale-display-large-tracking: -0.25pt;
+  --md-sys-typescale-display-large-line-height: 64pt;
+}
+
+* {
+  transition: background-color 0.3s, color 0.1s;
+}
+
+.layout {
   display: flex;
   background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
 }

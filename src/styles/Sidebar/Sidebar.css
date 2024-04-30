@@ -1,0 +1,8 @@
+.active {
+    background-color: var(--md-sys-color-primary-container);
+    color: #333;
+}
+
+/* .active > .material-symbols-outlined {
+    fill: 1;
+} */

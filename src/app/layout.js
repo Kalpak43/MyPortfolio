@@ -1,7 +1,7 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar/Sidebar";
-
+import ThemeProvider from "@/contexts/ThemeProvider";
+import Script from "next/script";
 
 export const metadata = {
   title: "KP's Portfolio",
@@ -11,9 +11,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body >
-        <Sidebar />
-        {children}
+      <body>
+        <ThemeProvider>
+          <main className="layout">
+            <Sidebar />
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
