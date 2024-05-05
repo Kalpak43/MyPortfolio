@@ -4,10 +4,9 @@ import React, { useContext, useEffect, useState } from "react";
 import "@material/web/button/text-button.js";
 import "@material/web/button/outlined-button.js";
 import "@material/web/checkbox/checkbox.js";
-import { ThemeContext } from "@/contexts/ThemeProvider";
+import { ThemeToggler } from "../ThemeToggler";
 
 export default function Sidebar() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const links = [
     {
@@ -75,7 +74,7 @@ export default function Sidebar() {
         }
       >
         <div className="flex flex-col gap-y-4">
-          <button title="menu-toggle" onClick={handleOpen}>
+          <button title="menu-toggle" className="md:hidden" onClick={handleOpen}>
             <span className="material-symbols-outlined block">
               {open ? "menu_open" : "menu"}
             </span>
@@ -99,11 +98,14 @@ export default function Sidebar() {
         </div>
 
         <div>
-          <md-outlined-button onClick={() => toggleTheme()}>
+          {/* <md-outlined-button onClick={() => toggleTheme()}>
             <span className="material-symbols-outlined block">
               {theme === "light" ? "dark_mode" : "light_mode"}
             </span>
-          </md-outlined-button>
+          </md-outlined-button> */}
+
+          <ThemeToggler />
+          
         </div>
       </div>
     </>

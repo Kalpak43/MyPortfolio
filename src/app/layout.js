@@ -1,7 +1,6 @@
-import "./globals.css";
-import Sidebar from "@/components/Sidebar/Sidebar";
 import ThemeProvider from "@/contexts/ThemeProvider";
-import Script from "next/script";
+import Sidebar from "@/components/Sidebar/Sidebar";
+import "./globals.css";
 
 export const metadata = {
   title: "KP's Portfolio",
@@ -11,10 +10,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="layout noto-sans-fam">
+      <body className="noto-sans-fam">
         <ThemeProvider>
+          <div className="layout">
             <Sidebar />
             {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
