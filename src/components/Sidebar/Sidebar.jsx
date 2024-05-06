@@ -60,7 +60,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <header className="flex md:hidden items-center py-2 px-4">
+      <header className="flex md:hidden items-center py-4 px-4 sticky top-0 bg-[inherit]">
         <button title="menu-toggle" onClick={handleOpen}>
           <span className="material-symbols-outlined block">
             {open ? "menu_open" : "menu"}
@@ -69,7 +69,7 @@ export default function Sidebar() {
       </header>
       <div
         className={
-          "px-4 py-2 w-fit md:w-auto h-[100dvh] flex flex-col justify-between bg-[var(--md-sys-color-surface-container)] fixed top-0 left-0  md:translate-x-0 transition-all duration-100 md:static" +
+          "px-4 py-2 w-fit md:w-auto h-[100dvh] flex flex-col justify-between bg-[var(--md-sys-color-surface-container)] fixed md:static top-0 left-0 z-50 md:translate-x-0 transition-all duration-100" +
           (open ? " translate-x-0" : " -translate-x-full")
         }
       >
@@ -91,7 +91,7 @@ export default function Sidebar() {
               href={link.link}
             >
               <span className="material-symbols-outlined block">
-                {link.icon}
+                {link.icon} 
               </span>
             </md-text-button>
           ))}
