@@ -2,11 +2,12 @@
 
 import React from "react";
 import "@material/web/button/filled-button.js";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 h-full w-full">
-      <div className="w-full h-full rounded-3xl place-content-center justify-items-center bg-[var(--md-sys-color-surface-container)] p-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 h-fit">
+      <div className="w-full h-full rounded-3xl place-content-center justify-items-center bg-[var(--md-sys-color-surface-container)] p-4 order-2 md:order-1">
         <h3>Hi, I am</h3>
         <h3 className="text-[var(--md-sys-color-primary)]">Kalpak Goshikwar</h3>
         <br />
@@ -29,7 +30,14 @@ export default function Hero() {
           Download My Resume
         </a>
       </div>
-      <div className="border-2 w-full h-full rounded-3xl"></div>
+      <div className="w-full h-full rounded-3xl overflow-clip flex order-1 md:order-2">
+        <Image
+          src={"/assets/images/Kalpak.jpg"}
+          width={500}
+          height={500}
+          className="w-full h-full object-cover"
+        />
+      </div>
     </div>
   );
 }
