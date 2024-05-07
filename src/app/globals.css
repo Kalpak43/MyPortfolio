@@ -1,10 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("../styles/icons.css");
 @import url("../styles/Sidebar/Sidebar.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --md-sys-color-primary: #6750a4;
@@ -82,11 +82,10 @@
   transition: background-color 0.3s, color 0.1s;
 }
 
-/* body {
-  font-family: "Cursive", sans-serif;
-} */
-
-/* layout */
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 1rem;
+}
 
 .layout {
   display: flex;
