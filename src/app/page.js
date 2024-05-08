@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="p-4 w-full space-y-8">
       <Hero />
-      <Skills />
+      {/* <Skills /> */}
     </main>
   );
 }
